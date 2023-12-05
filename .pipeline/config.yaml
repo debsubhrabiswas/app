@@ -1,6 +1,6 @@
 ---
 general:
-<% if(BTPRuntime === 'Cloud Foundry Environment'){ -%>
+<% if(BTPRuntime === 'Kyma'){ -%>
   buildTool: "docker"
   containerImageName: "<%= dockerID %>/<%= projectName %>-srv"
   containerImageTag: "latest"
@@ -9,10 +9,10 @@ service:
   automaticVersioning: false
   dockerConfigJsonSecretTextCredentialsId: "docker"
   Acceptance:
-    kubeConfigSecretTextCredentialsId: "Cloud Foundry Environment"
+    kubeConfigSecretTextCredentialsId: "kyma"
     helmValuePath: "helm/<%= projectName %>-srv/values.yaml"
   Release:
-    kubeConfigSecretTextCredentialsId: "Cloud Foundry Environment"
+    kubeConfigSecretTextCredentialsId: "kyma"
     helmValuePath: "helm/<%= projectName %>-srv/values.yaml"
 steps:
   kanikoExecute:
